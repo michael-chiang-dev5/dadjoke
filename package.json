@@ -1,0 +1,14 @@
+{
+  "name": "rithm-node-exercise",
+  "version": "1.0.0",
+  "description": "writes a dad joke to a text file based on a search term",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
