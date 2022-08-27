@@ -1,16 +1,23 @@
-
 const request = require('request');
 const fs = require("fs");
+const prompt = require('prompt');
 
-const str = process.argv[2];
+prompt.start();
+prompt.get(['searchString'], function (err, result) {
+    const str = result.searchString
+    const options = createOptions(str)
+    request(options,callback)
+});
 
-
-const options = {
-    url: 'https://icanhazdadjoke.com/'+`search?term=${str}`,
-    headers: {
-        'Accept': 'application/json'
-    }
-};
+function createOptions(str) {
+    const options = {
+        url: 'https://icanhazdadjoke.com/'+`search?term=${str}`,
+        headers: {
+            'Accept': 'application/json'
+        }
+    };
+    return options
+}
 
 function callback(error,response,body) {    
     let obj = JSON.parse(body)
@@ -23,9 +30,4 @@ function callback(error,response,body) {
         if (err) console.log(err);
         else console.log('File written successfully')
     })
-
-    //console.log(jokeArray[randomIdx]['joke'])
 }
-
-request(options,callback)
-// console.log(str)
