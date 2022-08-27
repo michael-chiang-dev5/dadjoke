@@ -15,7 +15,7 @@ function callback(error,response,body) {
     let obj = JSON.parse(body)
     //let joke = obj['joke']
     let jokeArray = obj['results']
-    if (jokeArray.length===0) return
+    if (jokeArray.length===0) {console.log('no jokes found for search term'); return;}
     let randomIdx = Math.floor(Math.random() * jokeArray.length); 
     console.log(jokeArray[randomIdx]['joke'])
 }
